@@ -1,0 +1,215 @@
+/* ===== General ===== */
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f6f9 !important;
+    color: #333;
+}
+
+
+/* ===== Header ===== */
+
+
+
+h1, h2 {
+    font-weight: 600;
+}
+
+h1 {
+    color: #0d6efd;
+}
+
+/* ===== Tabs ===== */
+
+.nav-tabs {
+    border-bottom: 2px solid #0d6efd;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+
+.nav-tabs .nav-link:hover {
+    background-color: #e7f1ff;
+    color: #0d6efd;
+}
+
+
+.nav-tabs .nav-link.active {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+}
+
+
+/* ===== Profile ===== */
+
+#profile .card {
+
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+
+}
+
+
+#imagenPerfil {
+
+    width: 250px;
+    height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin: 15px auto;
+
+    border: 5px solid #0d6efd;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+#imagenPerfil:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+/* ===== Formularios ===== */
+
+.form-control {
+
+    border-radius: 10px;
+
+}
+
+
+.form-control:focus {
+
+    border-color: #0d6efd;
+
+    box-shadow: 0 0 0 0.2rem rgba(13,110,253,.15);
+
+}
+
+
+/* ===== Botones ===== */
+
+.btn {
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+
+}
+
+
+.btn:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ===== Tabla Usuarios ===== */
+
+.table {
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+/* ===== Cards Productos ===== */
+
+.product-card {
+
+    height: 100%;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+
+.product-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+}
+
+
+
+.product-card img {
+
+    height: 220px;
+
+    width: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* ===== Cat Facts ===== */
+
+#catFact {
+
+    border-radius: 15px;
+
+    font-size: 1.1rem;
+
+}
+
+
+/* ===== JSON Modal ===== */
+
+#contenidoJSON {
+
+    max-height: 500px;
+
+    overflow: auto;
+
+    background-color: #212529;
+
+    color: white;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    font-size: 0.9rem;
+
+}
+
+/* ===== Research ===== */
+
+#research .card {
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+}
+
+#research .card:hover {
+    transform: scale(1.01);
+}
+
+#research .table {
+    font-size: 0.9rem;
+}
+
+#research .badge {
+    font-size: 0.8rem;
+}

@@ -7,7 +7,7 @@
     <title>Practice - Asynchronous Processes</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-light">
@@ -16,7 +16,7 @@
 
         <!-- Header -->
         <section class="bg-white rounded-4 shadow-sm p-4 mb-4">
-            <h1 class="display-6">Asynchronous APIs Practice</h1>
+            <h1 class="display-6 ">Mini Tienda Online</h1>
             <p class="text-muted mb-0">
                 This application demonstrates the use of Fetch API, async/await,
                 localStorage, Bootstrap, and external REST APIs.
@@ -116,12 +116,16 @@
                     </div>
 
                     <div class="mt-3">
-                        <button type="button" id="btnCrearUsuario" class="btn btn-success">
+                        <button type="button" id="btnCrearUsuario" class="btn btn-success mb-3">
                             Add Local User
                         </button>
 
-                        <button type="button" id="btnCargarUsuarios" class="btn btn-primary">
+                        <button type="button" id="btnCargarUsuarios" class="btn btn-primary mb-3">
                             Load Users
+                        </button>
+
+                        <button id="btnVerJSONUsuarios" class="btn btn-dark mb-3">
+                            View Users JSON
                         </button>
                     </div>
 
@@ -145,9 +149,14 @@
                     Load Products
                 </button>
 
+                <button id="btnVerJSONProductos" class="btn btn-dark mb-3">
+                    View Products JSON
+                </button>
+
                 <p id="estadoProductos" class="text-muted">
                     Press the button to load products.
                 </p>
+
 
                 <div id="contenedorProductos" class="row g-3">
 
@@ -158,26 +167,164 @@
             <section class="tab-pane fade" id="catfacts" role="tabpanel" aria-labelledby="catfacts-tab">
 
                 <h2 class="h4">Cat Facts</h2>
-                <p class="text-muted">
-                    This section will display a random cat fact obtained from an external API.
+                <p class="text-muted" id="estadoFact">
+                    Cargando...
                 </p>
+                <button id="btnCatFact" class="btn btn-primary mb-3">
+                    Show Cat Fact
+                </button>
+
+                <div id="catFact" class="alert alert-info d-none"></div>
+
 
             </section>
+
 
             <!-- Research -->
             <section class="tab-pane fade" id="research" role="tabpanel" aria-labelledby="research-tab">
 
-                <h2 class="h4">Research</h2>
-                <p class="text-muted">
-                    This section will include the comparison between Vanilla JavaScript, jQuery, localStorage,
-                    sessionStorage, and cookies.
-                </p>
+                <h2 class="h4">Research: Web Storage & Technologies</h2>
+                <p class="text-muted">Comparison between Vanilla JavaScript, jQuery, localStorage, sessionStorage, and
+                    cookies.</p>
+
+                <div class="row g-4 mt-2">
+
+                    <!-- Vanilla JS vs jQuery -->
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header bg-primary text-white fw-bold">
+                                Vanilla JavaScript vs jQuery
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Vanilla JS</strong> is lightweight, fast, and doesn't require external
+                                    libraries. Modern browsers support ES6+ features like <code>fetch</code>,
+                                    <code>querySelector</code>, and <code>async/await</code>.</p>
+                                <p><strong>jQuery</strong> simplifies DOM manipulation and AJAX calls, but adds ~30KB of
+                                    overhead. It's useful for legacy projects but less necessary today.</p>
+                                <p><span class="badge bg-success">Recommendation</span> Use Vanilla JS for new projects
+                                    unless you need jQuery-specific plugins.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- localStorage vs sessionStorage -->
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header bg-info text-white fw-bold">
+                                localStorage vs sessionStorage
+                            </div>
+                            <div class="card-body">
+                                <p><strong>localStorage</strong> stores data permanently (until manually cleared). It
+                                    persists across browser sessions and tabs.</p>
+                                <p><strong>sessionStorage</strong> stores data only for the current session. Data is
+                                    lost when the tab or browser is closed.</p>
+                                <p><span class="badge bg-secondary">Capacity</span> Both offer ~5–10MB per domain.</p>
+                                <p><span class="badge bg-warning text-dark">Use case</span> Use localStorage for user
+                                    preferences, sessionStorage for temporary form data.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cookies -->
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header bg-dark text-white fw-bold">
+                                Cookies
+                            </div>
+                            <div class="card-body">
+                                <p>Cookies are small text files stored on the client side. They are sent with every HTTP
+                                    request, which can impact performance.</p>
+                                <p><strong>Size limit:</strong> ~4KB per cookie.</p>
+                                <p><strong>Expiration:</strong> Can be set manually (e.g., session, days, years).</p>
+                                <p><span class="badge bg-danger">Security</span> Use <code>HttpOnly</code> and
+                                    <code>Secure</code> flags to protect against XSS attacks.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Table -->
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header bg-success text-white fw-bold">
+                                Quick Comparison
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                <table class="table table-bordered table-striped mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th>localStorage</th>
+                                            <th>sessionStorage</th>
+                                            <th>Cookies</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Capacity</strong></td>
+                                            <td>5–10MB</td>
+                                            <td>5–10MB</td>
+                                            <td>~4KB</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Expiration</strong></td>
+                                            <td>Persistent</td>
+                                            <td>Session only</td>
+                                            <td>Custom</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sent to server</strong></td>
+                                            <td>No</td>
+                                            <td>No</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Accessible via JS</strong></td>
+                                            <td>Yes</td>
+                                            <td>Yes</td>
+                                            <td>Yes (unless HttpOnly)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
             </section>
 
         </div>
 
     </main>
+
+    <div class="modal fade" id="modalJSON" tabindex="-1">
+
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title">JSON Data</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <pre id="contenidoJSON"></pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./app.js"></script>
