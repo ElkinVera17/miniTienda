@@ -34,7 +34,7 @@ async function fotoPerfil() {
 }
 
 //Inicio de pagina
-function iniciaPagina() {
+function iniciaPagina() { 
     fotoPerfil();
     const datos = localStorage.getItem("usuariosLocales");
 
