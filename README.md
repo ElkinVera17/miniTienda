@@ -18,10 +18,11 @@ Mini Tienda Online es una aplicación web que simula una tienda básica integran
 - Cat Fact API (https://catfact.ninja/fact) — datos curiosos de gatos
 
 ### Estructura del proyecto
-- 
-- 
-- 
-- 
+```
+├── 📄 app.js
+├── 🌐 index.html
+└── 🎨 style.css
+```
 
 ### Instalación y ejecución
 - Clonar el repositorio: git clone https://github.com/ElkinVera17/miniTienda.git
